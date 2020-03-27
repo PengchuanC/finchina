@@ -16,12 +16,8 @@ def login():
             "Content-Type": "application/x-www-form-urlencoded; charset=utf-8", "Host": "app.finchina.com",
             "User-Agent": "FCPublicOpinionSystem/4.6.0 (news.finchina.com; build:607; iOS 13.4.0) Alamofire/4.7.2",
             "client": "finchina", "system": "v4.6.0.607,13.4,iOS,iPhone,iPhone,iPhone11,2"}
-    payload = {
-        'devicetoken': 'Gg1QRxV48dQu/K76qUq03APTCs8ZG3PC5efSG1h5arc=',
-        'password': '28bdf06947f2e5edb2db96acc17089d5',
-        'phone': '13221735254',
-        'system': 'v4.6.0.607, 13.4, iOS, iPhone, iPhone, iPhone11, 2'
-    }
+    with shelve.open('data') as f:
+        payload = f['login_payload']
     resp = r.post(login_url, data=payload, headers=head)
     data = check_err(resp)
     token = data['token']
