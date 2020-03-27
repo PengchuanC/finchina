@@ -1,3 +1,4 @@
+import os
 import json
 import shelve
 
@@ -7,6 +8,7 @@ import pandas as pd
 
 session = False
 URL = "https://app.finchina.com/finchinaAPP/getMonitorInfo2.action"
+path = os.path.dirname(__file__)
 
 
 def login():
@@ -17,7 +19,7 @@ def login():
             "User-Agent": "FCPublicOpinionSystem/4.6.0 (news.finchina.com; build:607; iOS 13.4.0) Alamofire/4.7.2",
             "client": "finchina", "system": "v4.6.0.607,13.4,iOS,iPhone,iPhone,iPhone11,2"}
     with shelve.open('data') as f:
-        payload = f['login_payload']
+        payload = f[os.path.join(path, 'login_payload')]
     resp = r.post(login_url, data=payload, headers=head)
     data = check_err(resp)
     token = data['token']
@@ -26,12 +28,12 @@ def login():
 
 
 def dump_token(token):
-    with shelve.open('data') as f:
+    with shelve.open(os.path.join(path, 'data')) as f:
         f['token'] = token
 
 
 def load_token():
-    with shelve.open('data') as f:
+    with shelve.open(os.path.join(path,'data')) as f:
         token = f.get('token', None)
     return token
 

@@ -1,5 +1,5 @@
-from config import companies, max_page
-from collector import format_negative_news_many, pd
+from .config import companies, max_page
+from .collector import format_negative_news_many, pd
 
 
 excel = pd.ExcelWriter('企业预警.xlsx')
