@@ -1,0 +1,13 @@
+###
+GET https://139.224.236.236/finchinaAPP/getMonitorInfo2.action?grouptype=company&importance=onlynegative&itemArr=1011383628&option=new&type=allNews
+Accept: */*
+Accept-Encoding: gzip;q=1.0, compress;q=0.5
+Accept-Language: zh-Hans-CN;q=1.0, en-CN;q=0.9
+Connection: keep-alive
+Host: app.finchina.com
+User-Agent: FCPublicOpinionSystem/4.6.0 (news.finchina.com; build:607; iOS 13.4.0) Alamofire/4.7.2
+client: finchina
+system: v4.6.0.607,13.4,iOS,iPhone,iPhone,iPhone11,2
+token: fe2c115d-f82e-4ac6-adbc-ae395868efca
+
+###
