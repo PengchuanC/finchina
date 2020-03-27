@@ -4,9 +4,9 @@ import shelve
 import requests as r
 import pandas as pd
 
-from config import URL
 
 session = False
+URL = "https://app.finchina.com/finchinaAPP/getMonitorInfo2.action"
 
 
 def login():
@@ -120,8 +120,3 @@ def format_negative_news_many(company_id, pages=3):
         d = format_negative_news(company_id, page)
         data = data.append(d)
     return data
-
-
-if __name__ == '__main__':
-    data = format_negative_news_many('1011383628', pages=3)
-    data.to_clipboard()
